@@ -7,11 +7,7 @@ open class OperationGroup: NSObject, ImageProcessingOperation {
     public var sources:SourceContainer { get { return inputImageRelay.sources } }
     public var targets:TargetContainer { get { return outputImageRelay.targets } }
     public let maximumInputs:UInt = 1
-    
-    public override init() {
-        
-    }
-    
+
     public func newFramebufferAvailable(_ framebuffer:Framebuffer, fromSourceIndex:UInt) {
         inputImageRelay.newFramebufferAvailable(framebuffer, fromSourceIndex:fromSourceIndex)
     }

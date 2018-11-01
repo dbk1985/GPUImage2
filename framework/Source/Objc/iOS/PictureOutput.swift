@@ -18,13 +18,6 @@ public class PictureOutput: NSObject, ImageConsumer {
     public let maximumInputs:UInt = 1
     var url:URL!
     
-    public override init() {
-        
-    }
-    
-    deinit {
-    }
-    
     public func saveNextFrameToURL(_ url:URL, format:PictureFileFormat) {
         onlyCaptureNextFrame = true
         encodedImageFormat = format
