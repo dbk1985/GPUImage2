@@ -18,7 +18,8 @@ public class PictureOutput: NSObject, ImageConsumer {
     public let maximumInputs:UInt = 1
     var url:URL!
     
-    public init() {
+    public override init() {
+        
     }
     
     deinit {

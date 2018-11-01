@@ -7,6 +7,7 @@ public class PictureInput: NSObject, ImageSource {
     var hasProcessedImage:Bool = false
     
     public init(image:CGImage, smoothlyScaleOutput:Bool = false, orientation:ImageOrientation = .portrait) {
+        super.init()    // 继承自NSObject 添加这句解决'self' captured by a closure before all members were initialized报错问题
         // TODO: Dispatch this whole thing asynchronously to move image loading off main thread
         let widthOfImage = GLint(image.width)
         let heightOfImage = GLint(image.height)

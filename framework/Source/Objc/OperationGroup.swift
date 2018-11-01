@@ -1,3 +1,5 @@
+import Foundation
+
 open class OperationGroup: NSObject, ImageProcessingOperation {
     let inputImageRelay = ImageRelay()
     let outputImageRelay = ImageRelay()
@@ -6,7 +8,8 @@ open class OperationGroup: NSObject, ImageProcessingOperation {
     public var targets:TargetContainer { get { return outputImageRelay.targets } }
     public let maximumInputs:UInt = 1
     
-    public init() {
+    public override init() {
+        
     }
     
     public func newFramebufferAvailable(_ framebuffer:Framebuffer, fromSourceIndex:UInt) {
