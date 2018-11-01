@@ -159,6 +159,8 @@
 		99BC7B942189A3030093CDC0 /* OpenGLContext_Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1E12FD1C9F5283008F844F /* OpenGLContext_Shared.swift */; };
 		99BC7B952189A3030093CDC0 /* HardLightBlend.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7FD10F1CB0785B00037949 /* HardLightBlend.swift */; };
 		99BC7B972189A3030093CDC0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9E35011E524BE200B8604F /* OpenGLES.framework */; };
+		99C5CF35218AC2AA003C07BC /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C5CF34218AC2AA003C07BC /* ColorExtension.swift */; };
+		99E9BF35218A9C7300A60043 /* RenderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E9BF34218A9C7300A60043 /* RenderImageView.swift */; };
 		BC09239E1C92658200A2ADFA /* ShaderProgram_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09239D1C92658200A2ADFA /* ShaderProgram_Tests.swift */; };
 		BC0923A11C92661D00A2ADFA /* Pipeline_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09239F1C9265A600A2ADFA /* Pipeline_Tests.swift */; };
 		BC0923A21C92664900A2ADFA /* Framebuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB279EB1C8D11630013E213 /* Framebuffer.swift */; };
@@ -530,6 +532,8 @@
 		99B6EE002189A495006BF799 /* PictureInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureInput.swift; sourceTree = "<group>"; };
 		99B6EE012189A495006BF799 /* PictureOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureOutput.swift; sourceTree = "<group>"; };
 		99BC7B9D2189A3030093CDC0 /* GPUImage_iOS_OC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GPUImage_iOS_OC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99C5CF34218AC2AA003C07BC /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		99E9BF34218A9C7300A60043 /* RenderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderImageView.swift; sourceTree = "<group>"; };
 		BC09239D1C92658200A2ADFA /* ShaderProgram_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShaderProgram_Tests.swift; path = Tests/ShaderProgram_Tests.swift; sourceTree = SOURCE_ROOT; };
 		BC09239F1C9265A600A2ADFA /* Pipeline_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pipeline_Tests.swift; path = Tests/Pipeline_Tests.swift; sourceTree = SOURCE_ROOT; };
 		BC1E12F41C9F2FD7008F844F /* ThreeInput.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = ThreeInput.vsh; path = Source/Operations/Shaders/ThreeInput.vsh; sourceTree = "<group>"; };
@@ -912,6 +916,8 @@
 				99B6EDFF2189A495006BF799 /* MovieOutput.swift */,
 				99B6EE002189A495006BF799 /* PictureInput.swift */,
 				99B6EE012189A495006BF799 /* PictureOutput.swift */,
+				99E9BF34218A9C7300A60043 /* RenderImageView.swift */,
+				99C5CF34218AC2AA003C07BC /* ColorExtension.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1650,6 +1656,7 @@
 				99BC7B332189A3030093CDC0 /* SoftElegance.swift in Sources */,
 				99BC7B342189A3030093CDC0 /* HighlightAndShadowTint.swift in Sources */,
 				99BC7B352189A3030093CDC0 /* BilateralBlur.swift in Sources */,
+				99C5CF35218AC2AA003C07BC /* ColorExtension.swift in Sources */,
 				99BC7B362189A3030093CDC0 /* ClosingFilter.swift in Sources */,
 				99BC7B372189A3030093CDC0 /* TextureInput.swift in Sources */,
 				99BC7B382189A3030093CDC0 /* AlphaBlend.swift in Sources */,
@@ -1719,6 +1726,7 @@
 				99BC7B7B2189A3030093CDC0 /* TextureOutput.swift in Sources */,
 				99BC7B7C2189A3030093CDC0 /* ColorLocalBinaryPattern.swift in Sources */,
 				99BC7B7D2189A3030093CDC0 /* AverageLuminanceExtractor.swift in Sources */,
+				99E9BF35218A9C7300A60043 /* RenderImageView.swift in Sources */,
 				99BC7B7E2189A3030093CDC0 /* PolkaDot.swift in Sources */,
 				99BC7B7F2189A3030093CDC0 /* Matrix.swift in Sources */,
 				99BC7B802189A3030093CDC0 /* MotionDetector.swift in Sources */,

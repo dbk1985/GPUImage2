@@ -1,5 +1,5 @@
 import UIKit
-import GPUImage
+import GPUImage_iOS_OC
 import AVFoundation
 
 let blendImageName = "WID-small.jpg"

@@ -1,4 +1,4 @@
-import GPUImage
+import GPUImage_iOS_OC
 import QuartzCore
 
 let filterOperations: Array<FilterOperationInterface> = [

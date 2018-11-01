@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99384D73218ACE5B00E3C215 /* RenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99384D72218ACE5B00E3C215 /* RenderViewController.swift */; };
 		99B6EE112189A53E006BF799 /* GPUImage_iOS_OC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 99B6EE0E2189A503006BF799 /* GPUImage_iOS_OC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		99D48322218AA34400390592 /* ImageFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D48321218AA34400390592 /* ImageFilterViewController.swift */; };
+		99D48324218AA5D500390592 /* testimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99D48323218AA5D500390592 /* testimage.jpg */; };
 		BC0037BD195CA11B00B9D651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0037BC195CA11B00B9D651 /* AppDelegate.swift */; };
 		BC0037BF195CA11B00B9D651 /* FilterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0037BE195CA11B00B9D651 /* FilterListViewController.swift */; };
 		BC0037C1195CA11B00B9D651 /* FilterDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0037C0195CA11B00B9D651 /* FilterDisplayViewController.swift */; };
@@ -83,6 +86,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		99384D72218ACE5B00E3C215 /* RenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
+		99D48321218AA34400390592 /* ImageFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFilterViewController.swift; sourceTree = "<group>"; };
+		99D48323218AA5D500390592 /* testimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testimage.jpg; sourceTree = "<group>"; };
 		BC0037B7195CA11B00B9D651 /* FilterShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilterShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC0037BB195CA11B00B9D651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC0037BC195CA11B00B9D651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +140,9 @@
 		BC0037B9195CA11B00B9D651 /* User interface */ = {
 			isa = PBXGroup;
 			children = (
+				99384D72218ACE5B00E3C215 /* RenderViewController.swift */,
+				99D48323218AA5D500390592 /* testimage.jpg */,
+				99D48321218AA34400390592 /* ImageFilterViewController.swift */,
 				BC0037BC195CA11B00B9D651 /* AppDelegate.swift */,
 				BC0037BE195CA11B00B9D651 /* FilterListViewController.swift */,
 				BC0037C0195CA11B00B9D651 /* FilterDisplayViewController.swift */,
@@ -293,6 +302,7 @@
 				BCFB078A1CBF361A009B2333 /* LaunchScreen.storyboard in Resources */,
 				BCFB05A31CBF1AE5009B2333 /* lookup_soft_elegance_1.png in Resources */,
 				BCFB05A11CBF1AE5009B2333 /* lookup_amatorka.png in Resources */,
+				99D48324218AA5D500390592 /* testimage.jpg in Resources */,
 				BCFB059B1CBF1ACA009B2333 /* Mask.png in Resources */,
 				BCFB05981CBF1ABD009B2333 /* Assets-iOS.xcassets in Resources */,
 				BCFB059C1CBF1ACA009B2333 /* WID-small.jpg in Resources */,
@@ -309,9 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D48322218AA34400390592 /* ImageFilterViewController.swift in Sources */,
 				BC0037C1195CA11B00B9D651 /* FilterDisplayViewController.swift in Sources */,
 				BC0037BF195CA11B00B9D651 /* FilterListViewController.swift in Sources */,
 				BC0037BD195CA11B00B9D651 /* AppDelegate.swift in Sources */,
+				99384D73218ACE5B00E3C215 /* RenderViewController.swift in Sources */,
 				BCFB05961CBF1AAF009B2333 /* FilterOperationTypes.swift in Sources */,
 				BCFB05951CBF1AAF009B2333 /* FilterOperations.swift in Sources */,
 			);
@@ -461,7 +473,7 @@
 				DEVELOPMENT_TEAM = 4QHCS2PLKR;
 				INFOPLIST_FILE = FilterShowcaseSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sunsetlakesoftware.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunsesoftware.FerShwcase;
 				PRODUCT_NAME = FilterShowcase;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -479,7 +491,7 @@
 				DEVELOPMENT_TEAM = 4QHCS2PLKR;
 				INFOPLIST_FILE = FilterShowcaseSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sunsetlakesoftware.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunsesoftware.FerShwcase;
 				PRODUCT_NAME = FilterShowcase;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

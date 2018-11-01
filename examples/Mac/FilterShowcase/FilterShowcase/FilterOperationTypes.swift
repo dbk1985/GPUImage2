@@ -1,5 +1,5 @@
 import Foundation
-import GPUImage
+import GPUImage_iOS_OC
 
 enum FilterSliderSetting {
     case disabled
