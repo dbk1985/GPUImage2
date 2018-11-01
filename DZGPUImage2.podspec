@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DZGPUImage2"
-  s.version      = "1.1"
+  s.version      = "0.1.0"
   s.summary      = "An open source iOS framework for GPU-based image and video processing."
 
   # This description is used to generate tags and improve search results.
