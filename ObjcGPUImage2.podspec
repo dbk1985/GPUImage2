@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "DZGPUImage2"
+  s.name         = "ObjcGPUImage2"
   s.version      = "0.1.0"
   s.summary      = "An open source iOS framework for GPU-based image and video processing."
 
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  GPUImage2 is an open source iOS framework in swift for GPU-based image and video processing, Building GPUImage2 for ios when you use Object-c to develop.
+  GPUImage2 is an open source iOS framework in swift for GPU-based image and video processing, Building GPUImage2 for ios when you use Object-c to develop. If you want to inherit the class of GPUImage2, you must write you code with swift. The most effective approach for migrating code to Swift is on a per-file basis—that is, one class at a time. Because you can’t subclass Swift classes in Objective-C, it’s best to choose a class in your app that doesn’t have any subclasses. reference：https://developer.apple.com/documentation/swift/migrating_your_objective-c_code_to_swift#//apple_ref/doc/uid/TP40014216-CH12-XID_67
                    DESC
 
   s.homepage     = "https://github.com/BradLarson/GPUImage2"

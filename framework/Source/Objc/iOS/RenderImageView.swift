@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class RenderImageView : UIImageView, ImageConsumer {
+open class RenderImageView : UIImageView, ImageConsumer {
     public var backgroundRenderColor = Color.black
     public var fillMode = FillMode.preserveAspectRatio
     public var orientation:ImageOrientation = .portrait
@@ -46,7 +46,7 @@ public class RenderImageView : UIImageView, ImageConsumer {
         self.commonInit()
     }
     
-    override public class var layerClass:Swift.AnyClass {
+    override open class var layerClass:Swift.AnyClass {
         get {
             return CAEAGLLayer.self
         }
