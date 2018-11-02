@@ -8,6 +8,13 @@
 
 import UIKit
 
+public enum GeneratedPictureFormat {
+    case unknown
+    case image
+    case pngData
+    case jpegData
+}
+
 open class RenderImageView : UIImageView, ImageConsumer {
     public var backgroundRenderColor = Color.black
     public var fillMode = FillMode.preserveAspectRatio
@@ -19,6 +26,10 @@ open class RenderImageView : UIImageView, ImageConsumer {
     var displayFramebuffer:GLuint?
     var displayRenderbuffer:GLuint?
     var backingSize = GLSize(width:0, height:0)
+   
+    public var fetchImageDataCallback:(() -> (encodedImageFormatCallback:() -> GeneratedPictureFormat,onlyCaptureNextFrameCallback:() -> Bool,imageDataCallback:(Any/** UIImage or Data */) -> ()))?
+    public var keepImageAroundForSynchronousCapture:Bool = false
+    var storedFramebuffer:Framebuffer?
     
     private lazy var displayShader:ShaderProgram = {
         return sharedImageProcessingContext.passthroughShader
@@ -119,10 +130,60 @@ open class RenderImageView : UIImageView, ImageConsumer {
         glViewport(0, 0, backingSize.width, backingSize.height)
     }
     
+    // TODO: Replace with texture caches
+    func cgImageFromFramebuffer(_ framebuffer:Framebuffer) -> CGImage {
+        let renderFramebuffer = sharedImageProcessingContext.framebufferCache.requestFramebufferWithProperties(orientation:framebuffer.orientation, size:framebuffer.size)
+        renderFramebuffer.lock()
+        renderFramebuffer.activateFramebufferForRendering()
+        clearFramebufferWithColor(Color.red)
+        renderQuadWithShader(sharedImageProcessingContext.passthroughShader, uniformSettings:ShaderUniformSettings(), vertexBufferObject:sharedImageProcessingContext.standardImageVBO, inputTextures:[framebuffer.texturePropertiesForOutputRotation(.noRotation)])
+        framebuffer.unlock()
+        
+        let imageByteSize = Int(framebuffer.size.width * framebuffer.size.height * 4)
+        let data = UnsafeMutablePointer<UInt8>.allocate(capacity: imageByteSize)
+        glReadPixels(0, 0, framebuffer.size.width, framebuffer.size.height, GLenum(GL_RGBA), GLenum(GL_UNSIGNED_BYTE), data)
+        renderFramebuffer.unlock()
+        guard let dataProvider = CGDataProvider(dataInfo:nil, data:data, size:imageByteSize, releaseData: dataProviderReleaseCallback) else {fatalError("Could not allocate a CGDataProvider")}
+        let defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB()
+        return CGImage(width:Int(framebuffer.size.width), height:Int(framebuffer.size.height), bitsPerComponent:8, bitsPerPixel:32, bytesPerRow:4 * Int(framebuffer.size.width), space:defaultRGBColorSpace, bitmapInfo:CGBitmapInfo() /*| CGImageAlphaInfo.Last*/, provider:dataProvider, decode:nil, shouldInterpolate:false, intent:.defaultIntent)!
+    }
+    
     public func newFramebufferAvailable(_ framebuffer:Framebuffer, fromSourceIndex:UInt) {
         if (displayFramebuffer == nil) {
             self.createDisplayFramebuffer()
         }
+        
+        if keepImageAroundForSynchronousCapture {
+            storedFramebuffer?.unlock()
+            storedFramebuffer = framebuffer
+        }
+        
+        if let imageCallback = fetchImageDataCallback {
+            let cgImageFromBytes = cgImageFromFramebuffer(framebuffer)
+            let image = UIImage(cgImage:cgImageFromBytes, scale:1.0, orientation:.up)
+            let (encodedImageFormatCallback, onlyCaptureNextFrameCallback, imageDataCallback) = imageCallback()
+            
+            var encodedImageFormat:GeneratedPictureFormat = .unknown
+            encodedImageFormat = encodedImageFormatCallback()
+            switch encodedImageFormat {
+                case .unknown, .image:
+                    imageDataCallback(image)
+                    break
+                case .pngData:
+                    let imageData:Data = UIImagePNGRepresentation(image)! // TODO: Better error handling here
+                    imageDataCallback(imageData)
+                case .jpegData:
+                    let imageData:Data = UIImageJPEGRepresentation(image, 0.8)! // TODO: Be able to set image quality
+                    imageDataCallback(imageData)
+            }
+            
+            let onlyCaptureNextFrame = onlyCaptureNextFrameCallback()
+            
+            if onlyCaptureNextFrame {
+                fetchImageDataCallback = nil
+            }
+        }
+
         self.activateDisplayFramebuffer()
         
         clearFramebufferWithColor(backgroundRenderColor)
@@ -134,4 +195,17 @@ open class RenderImageView : UIImageView, ImageConsumer {
         glBindRenderbuffer(GLenum(GL_RENDERBUFFER), displayRenderbuffer!)
         sharedImageProcessingContext.presentBufferForDisplay()
     }
+
+    public func synchronousImageCapture() -> UIImage {
+        var outputImage:UIImage!
+        sharedImageProcessingContext.runOperationSynchronously{
+            guard let currentFramebuffer = storedFramebuffer else { fatalError("Synchronous access requires keepImageAroundForSynchronousCapture to be set to true") }
+            
+            let cgImageFromBytes = cgImageFromFramebuffer(currentFramebuffer)
+            outputImage = UIImage(cgImage:cgImageFromBytes, scale:1.0, orientation:.up)
+        }
+        
+        return outputImage
+    }
+    
 }
