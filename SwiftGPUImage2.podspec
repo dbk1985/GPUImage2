@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "DZGPUImage2"
+  s.name         = "SwiftGPUImage2"
   s.version      = "0.1.0"
   s.summary      = "An open source iOS framework for GPU-based image and video processing."
 
