@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		999AB6D9218FCFCD00A04AF9 /* CIContext_Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999AB6D8218FCFCC00A04AF9 /* CIContext_Shared.swift */; };
+		999AB6DA218FCFCD00A04AF9 /* CIContext_Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999AB6D8218FCFCC00A04AF9 /* CIContext_Shared.swift */; };
+		999AB6DB218FCFCD00A04AF9 /* CIContext_Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999AB6D8218FCFCC00A04AF9 /* CIContext_Shared.swift */; };
 		99B6EE022189A495006BF799 /* OperationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B6EDFA2189A495006BF799 /* OperationGroup.swift */; };
 		99B6EE032189A495006BF799 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B6EDFB2189A495006BF799 /* ImageGenerator.swift */; };
 		99B6EE042189A495006BF799 /* BasicOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B6EDFC2189A495006BF799 /* BasicOperation.swift */; };
@@ -524,6 +527,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		999AB6D8218FCFCC00A04AF9 /* CIContext_Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIContext_Shared.swift; sourceTree = "<group>"; };
 		99B6EDFA2189A495006BF799 /* OperationGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationGroup.swift; sourceTree = "<group>"; };
 		99B6EDFB2189A495006BF799 /* ImageGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
 		99B6EDFC2189A495006BF799 /* BasicOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicOperation.swift; sourceTree = "<group>"; };
@@ -918,6 +922,7 @@
 				99B6EE012189A495006BF799 /* PictureOutput.swift */,
 				99E9BF34218A9C7300A60043 /* RenderImageView.swift */,
 				99C5CF34218AC2AA003C07BC /* ColorExtension.swift */,
+				999AB6D8218FCFCC00A04AF9 /* CIContext_Shared.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1725,6 +1730,7 @@
 				99BC7B7A2189A3030093CDC0 /* Vignette.swift in Sources */,
 				99BC7B7B2189A3030093CDC0 /* TextureOutput.swift in Sources */,
 				99BC7B7C2189A3030093CDC0 /* ColorLocalBinaryPattern.swift in Sources */,
+				999AB6DB218FCFCD00A04AF9 /* CIContext_Shared.swift in Sources */,
 				99BC7B7D2189A3030093CDC0 /* AverageLuminanceExtractor.swift in Sources */,
 				99E9BF35218A9C7300A60043 /* RenderImageView.swift in Sources */,
 				99BC7B7E2189A3030093CDC0 /* PolkaDot.swift in Sources */,
@@ -1767,6 +1773,7 @@
 				BC4C85EE1C9F042900FD95D8 /* ConvertedShaders_GL.swift in Sources */,
 				BC7FD1731CB1C0E600037949 /* PolkaDot.swift in Sources */,
 				BC7FD18D1CB1D03600037949 /* GlassSphereRefraction.swift in Sources */,
+				999AB6D9218FCFCD00A04AF9 /* CIContext_Shared.swift in Sources */,
 				BCA4E23B1CC35044007B51BA /* Vibrance.swift in Sources */,
 				BCFF46DD1CBAB37B00A0C521 /* iOSBlur.swift in Sources */,
 				BC1E12FE1C9F5283008F844F /* OpenGLContext_Shared.swift in Sources */,
@@ -1950,6 +1957,7 @@
 				BC9E358E1E52573000B8604F /* BoxBlur.swift in Sources */,
 				BC9E35611E5256A200B8604F /* TwoStageOperation.swift in Sources */,
 				BC9E35C41E5257DC00B8604F /* DarkenBlend.swift in Sources */,
+				999AB6DA218FCFCD00A04AF9 /* CIContext_Shared.swift in Sources */,
 				BC9E358D1E52572E00B8604F /* SingleComponentGaussianBlur.swift in Sources */,
 				BC9E35361E524D7C00B8604F /* FramebufferCache.swift in Sources */,
 				BC9E359C1E52575A00B8604F /* ShiTomasiFeatureDetector.swift in Sources */,
