@@ -95,7 +95,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "framework/Source/**/*.{swift}"
   # s.exclude_files = "Classes/Exclude"
-  s.ios.exclude_files = 'framework/Source/Mac', 'framework/Source/Linux', 'framework/Source/Operations/Shaders/ConvertedShaders_GL.swift', 'framework/Source/OperationGroup.swift', 'framework/Source/BasicOperation.swift', 'framework/Source/ImageGenerator.swift', 'framework/Source/iOS/*Input.swift', 'framework/Source/iOS/*Output.swift'
+  s.ios.exclude_files = 'framework/Source/Mac', 'framework/Source/Linux', 'framework/Source/Operations/Shaders/ConvertedShaders_GL.swift', 'framework/Source/OperationGroup.swift', 'framework/Source/BasicOperation.swift', 'framework/Source/ImageOrientation.swift', 'framework/Source/ImageGenerator.swift', 'framework/Source/iOS/*Input.swift', 'framework/Source/iOS/*Output.swift'
 
   # s.public_header_files = "Classes/**/*.h"
 
