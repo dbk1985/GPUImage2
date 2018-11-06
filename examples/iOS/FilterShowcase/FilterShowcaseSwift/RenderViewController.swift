@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 import GPUImage_iOS_OC
 
 public class RenderViewController : UIViewController
@@ -36,7 +37,13 @@ public class RenderViewController : UIViewController
         picture = PictureInput(image:UIImage(named:"testimage.jpg")!)
         filter = SaturationAdjustment()
         let gammaFilter = GammaAdjustment()
-        picture --> filter --> gammaFilter --> renderView
+        let husFilter = HueAdjustment()
+        husFilter.hue = 270
+        let monoFilter: DZCIFilter = DZCIFilter(filter: CIFilter(name: "CIPhotoEffectMono")!)
+        let sharpFilter: Sharpen = Sharpen()
+        sharpFilter.sharpness = 0.9
+        
+        picture --> filter --> gammaFilter --> monoFilter --> sharpFilter --> husFilter --> renderView
         picture.processImage()
     }
 }

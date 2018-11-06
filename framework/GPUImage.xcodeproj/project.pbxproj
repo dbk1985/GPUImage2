@@ -13,6 +13,9 @@
 		99A5ECEE21912AEF00132A60 /* ImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5ECED21912AEE00132A60 /* ImageOrientation.swift */; };
 		99A5ECEF21912AEF00132A60 /* ImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5ECED21912AEE00132A60 /* ImageOrientation.swift */; };
 		99A5ECF021912AEF00132A60 /* ImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5ECED21912AEE00132A60 /* ImageOrientation.swift */; };
+		99A5ECF6219158E600132A60 /* DZCIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5ECF5219158E600132A60 /* DZCIFilter.swift */; };
+		99A5ECF7219158E600132A60 /* DZCIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5ECF5219158E600132A60 /* DZCIFilter.swift */; };
+		99A5ECF8219158E600132A60 /* DZCIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5ECF5219158E600132A60 /* DZCIFilter.swift */; };
 		99B6EE022189A495006BF799 /* OperationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B6EDFA2189A495006BF799 /* OperationGroup.swift */; };
 		99B6EE032189A495006BF799 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B6EDFB2189A495006BF799 /* ImageGenerator.swift */; };
 		99B6EE042189A495006BF799 /* BasicOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B6EDFC2189A495006BF799 /* BasicOperation.swift */; };
@@ -527,6 +530,7 @@
 /* Begin PBXFileReference section */
 		999AB6D8218FCFCC00A04AF9 /* CIContext_Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIContext_Shared.swift; sourceTree = "<group>"; };
 		99A5ECED21912AEE00132A60 /* ImageOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageOrientation.swift; sourceTree = "<group>"; };
+		99A5ECF5219158E600132A60 /* DZCIFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DZCIFilter.swift; sourceTree = "<group>"; };
 		99B6EDFA2189A495006BF799 /* OperationGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationGroup.swift; sourceTree = "<group>"; };
 		99B6EDFB2189A495006BF799 /* ImageGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
 		99B6EDFC2189A495006BF799 /* BasicOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicOperation.swift; sourceTree = "<group>"; };
@@ -923,6 +927,7 @@
 				99E9BF34218A9C7300A60043 /* RenderImageView.swift */,
 				99C5CF34218AC2AA003C07BC /* ColorExtension.swift */,
 				999AB6D8218FCFCC00A04AF9 /* CIContext_Shared.swift */,
+				99A5ECF5219158E600132A60 /* DZCIFilter.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1751,6 +1756,7 @@
 				99BC7B8D2189A3030093CDC0 /* GlassSphereRefraction.swift in Sources */,
 				99BC7B8E2189A3030093CDC0 /* Sharpen.swift in Sources */,
 				99BC7B8F2189A3030093CDC0 /* SepiaToneFilter.swift in Sources */,
+				99A5ECF8219158E600132A60 /* DZCIFilter.swift in Sources */,
 				99BC7B902189A3030093CDC0 /* WhiteBalance.swift in Sources */,
 				99BC7B912189A3030093CDC0 /* Convolution3x3.swift in Sources */,
 				99BC7B922189A3030093CDC0 /* Erosion.swift in Sources */,
@@ -1781,6 +1787,7 @@
 				BC7FD0A41CA6325500037949 /* ColorInversion.swift in Sources */,
 				BC7729621CB32163004C9E0B /* Laplacian.swift in Sources */,
 				BCFF46AE1CB7554700A0C521 /* AdaptiveThreshold.swift in Sources */,
+				99A5ECF6219158E600132A60 /* DZCIFilter.swift in Sources */,
 				BC7FD1301CB0A40E00037949 /* StretchDistortion.swift in Sources */,
 				BC7FD1A51CB2160B00037949 /* CircleGenerator.swift in Sources */,
 				BCFF46D91CB9E46100A0C521 /* NobleCornerDetector.swift in Sources */,
@@ -1964,6 +1971,7 @@
 				BC9E35581E5252BA00B8604F /* CircleGenerator.swift in Sources */,
 				BC9E35691E5256BF00B8604F /* RGBAdjustmentFilter.swift in Sources */,
 				BC9E35BA1E5257BC00B8604F /* MotionBlur.swift in Sources */,
+				99A5ECF7219158E600132A60 /* DZCIFilter.swift in Sources */,
 				BC9E35B11E52579E00B8604F /* SphereRefraction.swift in Sources */,
 				BC9E35591E5252C200B8604F /* RawDataOutput.swift in Sources */,
 				BC9E35B01E52579B00B8604F /* PinchDistortion.swift in Sources */,
