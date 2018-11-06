@@ -175,7 +175,7 @@ open class BasicOperation: NSObject, ImageProcessingOperation {
         return inputTextureProperties
     }
     
-    func configureFramebufferSpecificUniforms(_ inputFramebuffer:Framebuffer) {
+     func configureFramebufferSpecificUniforms(_ inputFramebuffer:Framebuffer) {
         if usesAspectRatio {
             let outputRotation = overriddenOutputRotation ?? inputFramebuffer.orientation.rotationNeededForOrientation(.portrait)
             uniformSettings["aspectRatio"] = inputFramebuffer.aspectRatioForRotation(outputRotation)
