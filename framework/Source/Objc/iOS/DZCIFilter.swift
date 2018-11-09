@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreImage
+import CoreGraphics
 
 public class DZCIFilter: ImageProcessingOperation {
     /** 滤镜 */
@@ -42,7 +43,6 @@ public class DZCIFilter: ImageProcessingOperation {
         renderFramebuffer.activateFramebufferForRendering()
         clearFramebufferWithColor(Color.red)
         renderQuadWithShader(sharedImageProcessingContext.passthroughShader, uniformSettings:ShaderUniformSettings(), vertexBufferObject:sharedImageProcessingContext.standardImageVBO, inputTextures:[framebuffer.texturePropertiesForOutputRotation(.noRotation)])
-        framebuffer.unlock()
 
 //        let imageByteSize = Int(framebuffer.size.width * framebuffer.size.height * 4)
 //        let imageData = UnsafeMutablePointer<UInt8>.allocate(capacity: imageByteSize)
@@ -64,29 +64,35 @@ public class DZCIFilter: ImageProcessingOperation {
         let ciInputimage:CIImage = CIImage(cgImage: cgImage)
         ciFilter.setValue(ciInputimage, forKey: kCIInputImageKey)
         if let outputImage = ciFilter.outputImage {
+            let ciContext: CIContext = CIContext(options: nil)
+            let cgImage:CGImage = ciContext.createCGImage(outputImage, from: ciInputimage.extent)!
+            
+            /*
             clearBackground()
             let inputBounds = ciInputimage.extent;
             let drawableBounds = CGRect(x: 0, y: 0, width: Int(framebuffer.size.width), height: Int(framebuffer.size.height))
             let targetBounds = imageBoundsForContentMode(fromRect: inputBounds, toRect: drawableBounds)
             sharedImageProcessingCIContext.draw(outputImage, in: targetBounds, from: inputBounds)
-        }
-
-        let format = GL_BGRA
-        sharedImageProcessingContext.runOperationSynchronously{
-            glBindTexture(GLenum(GL_TEXTURE_2D), framebuffer.texture)
-            if (smoothlyScaleOutput) {
-                glTexParameteri(GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_MIN_FILTER), GL_LINEAR_MIPMAP_LINEAR)
+             */
+            let outputImageData:UnsafeMutablePointer = UnsafeMutablePointer<GLubyte>(mutating:CFDataGetBytePtr(cgImage.dataProvider?.data))
+           
+            let format = GL_BGRA
+            sharedImageProcessingContext.runOperationSynchronously{
+                glBindTexture(GLenum(GL_TEXTURE_2D), renderFramebuffer.texture)
+                if (smoothlyScaleOutput) {
+                    glTexParameteri(GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_MIN_FILTER), GL_LINEAR_MIPMAP_LINEAR)
+                }
+                
+                glTexImage2D(GLenum(GL_TEXTURE_2D), 0, GL_RGBA, framebuffer.size.width, framebuffer.size.height, 0, GLenum(format), GLenum(GL_UNSIGNED_BYTE), outputImageData)
+                
+                if (smoothlyScaleOutput) {
+                    glGenerateMipmap(GLenum(GL_TEXTURE_2D))
+                }
+                glBindTexture(GLenum(GL_TEXTURE_2D), 0)
             }
-
-            glTexImage2D(GLenum(GL_TEXTURE_2D), 0, GL_RGBA, framebuffer.size.width, framebuffer.size.height, 0, GLenum(format), GLenum(GL_UNSIGNED_BYTE), imageUnsafeMutableRawPointer)
-
-            if (smoothlyScaleOutput) {
-                glGenerateMipmap(GLenum(GL_TEXTURE_2D))
-            }
-            glBindTexture(GLenum(GL_TEXTURE_2D), 0)
         }
         
-        updateTargetsWithFramebuffer(framebuffer)
+        updateTargetsWithFramebuffer(renderFramebuffer)
     }
     
     public func transmitPreviousImage(to target: ImageConsumer, atIndex: UInt) {

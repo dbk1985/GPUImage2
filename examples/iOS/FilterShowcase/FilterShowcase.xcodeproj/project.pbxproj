@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990114C52192E351008A791A /* OCTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990114C42192E351008A791A /* OCTestViewController.m */; };
 		99384D73218ACE5B00E3C215 /* RenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99384D72218ACE5B00E3C215 /* RenderViewController.swift */; };
+		99AF23202194050B009E2358 /* timg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99AF231B2194050B009E2358 /* timg.jpg */; };
 		99B6EE112189A53E006BF799 /* GPUImage_iOS_OC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 99B6EE0E2189A503006BF799 /* GPUImage_iOS_OC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		99D48322218AA34400390592 /* ImageFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D48321218AA34400390592 /* ImageFilterViewController.swift */; };
 		99D48324218AA5D500390592 /* testimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99D48323218AA5D500390592 /* testimage.jpg */; };
@@ -86,7 +88,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		990114C22192E350008A791A /* FilterShowcase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FilterShowcase-Bridging-Header.h"; sourceTree = "<group>"; };
+		990114C32192E351008A791A /* OCTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCTestViewController.h; sourceTree = "<group>"; };
+		990114C42192E351008A791A /* OCTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCTestViewController.m; sourceTree = "<group>"; };
 		99384D72218ACE5B00E3C215 /* RenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
+		99AF231B2194050B009E2358 /* timg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg.jpg; sourceTree = "<group>"; };
 		99D48321218AA34400390592 /* ImageFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFilterViewController.swift; sourceTree = "<group>"; };
 		99D48323218AA5D500390592 /* testimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testimage.jpg; sourceTree = "<group>"; };
 		BC0037B7195CA11B00B9D651 /* FilterShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilterShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +146,7 @@
 		BC0037B9195CA11B00B9D651 /* User interface */ = {
 			isa = PBXGroup;
 			children = (
+				99AF231B2194050B009E2358 /* timg.jpg */,
 				99384D72218ACE5B00E3C215 /* RenderViewController.swift */,
 				99D48323218AA5D500390592 /* testimage.jpg */,
 				99D48321218AA34400390592 /* ImageFilterViewController.swift */,
@@ -148,6 +155,9 @@
 				BC0037C0195CA11B00B9D651 /* FilterDisplayViewController.swift */,
 				BC0037C2195CA11B00B9D651 /* Main.storyboard */,
 				BCFB07881CBF361A009B2333 /* LaunchScreen.storyboard */,
+				990114C32192E351008A791A /* OCTestViewController.h */,
+				990114C42192E351008A791A /* OCTestViewController.m */,
+				990114C22192E350008A791A /* FilterShowcase-Bridging-Header.h */,
 			);
 			name = "User interface";
 			path = FilterShowcaseSwift;
@@ -300,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCFB078A1CBF361A009B2333 /* LaunchScreen.storyboard in Resources */,
+				99AF23202194050B009E2358 /* timg.jpg in Resources */,
 				BCFB05A31CBF1AE5009B2333 /* lookup_soft_elegance_1.png in Resources */,
 				BCFB05A11CBF1AE5009B2333 /* lookup_amatorka.png in Resources */,
 				99D48324218AA5D500390592 /* testimage.jpg in Resources */,
@@ -321,6 +332,7 @@
 			files = (
 				99D48322218AA34400390592 /* ImageFilterViewController.swift in Sources */,
 				BC0037C1195CA11B00B9D651 /* FilterDisplayViewController.swift in Sources */,
+				990114C52192E351008A791A /* OCTestViewController.m in Sources */,
 				BC0037BF195CA11B00B9D651 /* FilterListViewController.swift in Sources */,
 				BC0037BD195CA11B00B9D651 /* AppDelegate.swift in Sources */,
 				99384D73218ACE5B00E3C215 /* RenderViewController.swift in Sources */,
@@ -467,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -476,6 +489,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunsesoftware.FerShwcase;
 				PRODUCT_NAME = FilterShowcase;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FilterShowcaseSwift/FilterShowcase-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
@@ -485,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -494,6 +510,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunsesoftware.FerShwcase;
 				PRODUCT_NAME = FilterShowcase;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FilterShowcaseSwift/FilterShowcase-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

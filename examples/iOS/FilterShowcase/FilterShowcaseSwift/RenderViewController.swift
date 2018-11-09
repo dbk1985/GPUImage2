@@ -34,16 +34,29 @@ public class RenderViewController : UIViewController
 //        }
         
         // Filtering image for display
-        picture = PictureInput(image:UIImage(named:"testimage.jpg")!)
+        picture = PictureInput(image:UIImage(named:"timg.jpg")!)
         filter = SaturationAdjustment()
-        let gammaFilter = GammaAdjustment()
-        let husFilter = HueAdjustment()
-        husFilter.hue = 270
-        let monoFilter: DZCIFilter = DZCIFilter(filter: CIFilter(name: "CIPhotoEffectMono")!)
-        let sharpFilter: Sharpen = Sharpen()
-        sharpFilter.sharpness = 0.9
+//        let gammaFilter = GammaAdjustment()
+//        let husFilter = HueAdjustment()
+//        husFilter.hue = 270
+        let monoFilter: DZCIFilter = DZCIFilter(filter: CIFilter(name: "CILinearToSRGBToneCurve")!)
+//        let sharpFilter: Sharpen = Sharpen()
+//        sharpFilter.sharpness = 0.9
         
-        picture --> filter --> gammaFilter --> monoFilter --> sharpFilter --> husFilter --> renderView
+        picture --> /*filter --> gammaFilter --> */monoFilter/* --> sharpFilter --> husFilter */--> renderView
         picture.processImage()
+        
+        let ciimage:CIImage = CIImage(image: #imageLiteral(resourceName: "timg.jpg"))!
+        let cifilter:CIFilter = CIFilter(name: "CILinearToSRGBToneCurve")!
+        cifilter.setValue(ciimage, forKey: kCIInputImageKey)
+        let cicontext:CIContext = CIContext(options: nil)
+        let outImage = cifilter.outputImage
+        let image = cicontext.createCGImage(outImage!, from: (outImage?.extent)!)
+        let img = UIImage(cgImage: image!)
+        let imageView = UIImageView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 400, height: 200)))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = img
+        self.view.addSubview(imageView)
+        
     }
 }
